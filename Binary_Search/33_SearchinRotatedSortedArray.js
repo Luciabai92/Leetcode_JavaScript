@@ -14,7 +14,7 @@ var search1 = function(nums, target) {
 
 //Binary Search
 //t: O(logn)
-var search = function(nums, target) {
+var search2 = function(nums, target) {
   //find out the pivot
   let l = 0, r = nums.length-1;
   while(l<=r) {
@@ -53,4 +53,28 @@ var search = function(nums, target) {
   return -1;
 }
 
-console.log(search([8,9,2,3,4],2))
+var search = function(nums, target) {
+  let l = 0, r = nums.length-1;
+  while(l<=r) {
+    let m = l + Math.floor((r-l)/2);
+
+    if(nums[m] === target) return m;
+    console.log("l",l,"r",r,"m",m);
+    //decide which side is inorder
+    if(nums[m] >= nums[l]) {     //if the left side of m is in order
+      if(target <= nums[m] && target >= nums[l]) {
+        r = m-1;
+      } else {
+        l = m+1;
+      }
+    } else { //the right side of m is in orders
+      if(target >= nums[m] && target <= nums[r]) {
+        l = m+1;
+      } else {
+        r = m-1;
+      }
+    }
+  }
+  return -1;
+}
+console.log(search([5,1,2,3,4],1))
