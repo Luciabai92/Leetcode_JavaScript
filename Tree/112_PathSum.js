@@ -14,7 +14,7 @@ var hasPathSum = function(root, sum) {
   let restSum = sum - root.val;
 
   if(!root.left && !root.right) {
-    //when restSum === 0 node should be leaf, otherwise continue (sum could be negative)
+    //when restSum === 0 node should be leaf, otherwise continue (sum could be negative1)
     if(restSum === 0) return true;
     else return false;
   }
