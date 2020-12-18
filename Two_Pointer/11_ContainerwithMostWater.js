@@ -2,6 +2,8 @@
  * @param {number[]} height
  * @return {number}
  */
+//t:o(n)
+//s:o(1)
 var maxArea = function(height) {
   let left = 0;
   let right = height.length-1
